@@ -20,3 +20,4 @@ def split_score(score):
 df['1st_innings_runs'], df['1st_innings_wkts'] = zip(*df['1st_inning_score'].map(split_score))
 df['2nd_innings_runs'], df['2nd_innings_wkts'] = zip(*df['2nd_inning_score'].map(split_score))
 df[['1st_innings_runs', '2nd_innings_runs', '1st_innings_wkts', '2nd_innings_wkts']].describe()
+df.dropna(subset=['1st_innings_runs', '2nd_innings_runs'], inplace=True)

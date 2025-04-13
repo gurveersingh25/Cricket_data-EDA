@@ -10,3 +10,13 @@ df.describe(include='all')
 df.isnull().sum().sort_values(ascending=False)
 df['start_date'] = pd.to_datetime(df['start_date'], errors='coerce')
 df['end_date'] = pd.to_datetime(df['end_date'], errors='coerce')]
+def split_score(score):
+    try:
+        runs, wickets = map(int, str(score).split('/'))
+        return runs, wickets
+    except:
+        return None, None
+
+df['1st_innings_runs'], df['1st_innings_wkts'] = zip(*df['1st_inning_score'].map(split_score))
+df['2nd_innings_runs'], df['2nd_innings_wkts'] = zip(*df['2nd_inning_score'].map(split_score))
+df[['1st_innings_runs', '2nd_innings_runs', '1st_innings_wkts', '2nd_innings_wkts']].describe()

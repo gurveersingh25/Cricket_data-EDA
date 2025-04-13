@@ -8,3 +8,5 @@ df.head()
 df.info()
 df.describe(include='all')
 df.isnull().sum().sort_values(ascending=False)
+df['start_date'] = pd.to_datetime(df['start_date'], errors='coerce')
+df['end_date'] = pd.to_datetime(df['end_date'], errors='coerce')]

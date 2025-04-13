@@ -7,3 +7,4 @@ df = pd.read_excel(r"C:\Users\india\OneDrive\Documents\Cricket_data.xlsx", sheet
 df.head()
 df.info()
 df.describe(include='all')
+df.isnull().sum().sort_values(ascending=False)

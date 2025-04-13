@@ -5,3 +5,4 @@ import seaborn as sns
 
 df = pd.read_excel(r"C:\Users\india\OneDrive\Documents\Cricket_data.xlsx", sheet_name="Cricket_data")
 df.head()
+df.info()

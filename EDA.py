@@ -21,3 +21,8 @@ df['1st_innings_runs'], df['1st_innings_wkts'] = zip(*df['1st_inning_score'].map
 df['2nd_innings_runs'], df['2nd_innings_wkts'] = zip(*df['2nd_inning_score'].map(split_score))
 df[['1st_innings_runs', '2nd_innings_runs', '1st_innings_wkts', '2nd_innings_wkts']].describe()
 df.dropna(subset=['1st_innings_runs', '2nd_innings_runs'], inplace=True)
+numeric_cols = ['1st_innings_runs', '2nd_innings_runs', 'home_runs', 'away_runs']
+df[numeric_cols].corr()
+sns.heatmap(df[numeric_cols].corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Matrix")
+plt.show()

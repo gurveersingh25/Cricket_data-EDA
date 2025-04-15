@@ -40,3 +40,6 @@ plt.title("Top 10 Winning Teams")
 plt.ylabel("Wins")
 plt.xticks(rotation=45)
 plt.show()
+toss_win = df[df['toss_won'] == df['winner']]
+percentage = len(toss_win) / len(df) * 100
+print(f"Percentage of matches where toss winner also won the match: {percentage:.2f}%")

@@ -43,3 +43,6 @@ plt.show()
 toss_win = df[df['toss_won'] == df['winner']]
 percentage = len(toss_win) / len(df) * 100
 print(f"Percentage of matches where toss winner also won the match: {percentage:.2f}%")
+sns.scatterplot(x='1st_innings_runs', y='1st_innings_wkts', data=df)
+plt.title("Runs vs Wickets in 1st Innings")
+plt.show()
